@@ -340,7 +340,7 @@ func main() {
 ```
 
 ```
-ids: map[b:hello a:1234], names: map[second:tianou first:thinkerou]
+ids: map[b:hello a:1234]; names: map[second:tianou first:thinkerou]
 ```
 
 ### Upload files
@@ -1255,6 +1255,7 @@ func main() {
 		}
 
 		reader := response.Body
+ 		defer reader.Close()
 		contentLength := response.ContentLength
 		contentType := response.Header.Get("Content-Type")
 
